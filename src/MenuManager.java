@@ -8,7 +8,7 @@ public class MenuManager {
 		
 		while (num !=6) {
 			System.out.println("*** Money Management System Menu ***");
-			System.out.println("1. Income Money");
+			System.out.println("1. Add Money");
 			System.out.println("2. Delete Money");
 			System.out.println("3. Edit Money");
 			System.out.println("4. View Money");
