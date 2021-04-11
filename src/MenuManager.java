@@ -13,12 +13,13 @@ public class MenuManager {
 			System.out.println("1. Add Money");
 			System.out.println("2. Delete Money");
 			System.out.println("3. Edit Money");
-			System.out.println("4. View Money");
+			System.out.println("4. View Moneys");
 			System.out.println("5. Exit");
-			System.out.println("Select one number between 1-6");
+			System.out.print("Select one number between 1-6: ");
 			num = input.nextInt();
 			if (num == 1) {
 				moneyManager.addMoney();
+				System.out.println();
 			}
 			else if (num == 2) {
 				moneyManager.deleteMoney();
@@ -27,7 +28,7 @@ public class MenuManager {
 				moneyManager.editMoney();
 			}
 			else if (num == 4) {
-				moneyManager.viewMoney();
+				moneyManager.viewMoneys();
 			}
 			else {
 				continue;
