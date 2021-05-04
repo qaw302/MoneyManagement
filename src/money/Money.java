@@ -9,6 +9,31 @@ public class Money {
 	protected String note;
 	protected int all;
 	
+	public Money() {
+	}
+	
+	public Money(MoneyKind kind) {
+		this.kind = kind;
+	}
+	
+	public Money(String note, int amount) {
+		this.note = note;
+		this.amount = amount;
+	}
+
+	public Money(String date, int amount, String note) {
+		this.date = date;
+		this.amount = amount;
+		this.note = note;
+	}
+	
+	public Money(MoneyKind kind,String date, int amount, String note) {
+		this.kind = kind;
+		this.date = date;
+		this.amount = amount;
+		this.note = note;
+	}
+	
 	public int getAll() {
 		return all;
 	}
@@ -42,29 +67,23 @@ public class Money {
 
 	public void setNote(String note) {
 		this.note = note;
-	}
-	
-	
-	public Money() {
-	}
-	
-	public Money(String note, int amount) {
-		this.note = note;
-		this.amount = amount;
-	}
+	}	
 
-	public Money(String date, int amount, String note) {
-		this.date = date;
-		this.amount = amount;
-		this.note = note;
-	}
-	
 	public void printInfo() {
-		System.out.println("\n"+ "date: " + date +"\n"+ "amount: " + amount +"\n"+ "note: " + note+"\n");
+		String mkind = "none";
+		switch(this.kind) {
+		case Income:
+			mkind = "Income";
+			break;
+		case Expenses:
+			mkind = "Expenses";
+			break;
+		}
+		System.out.println("\n"+ "kind" + mkind +"date: " + "\n"+ date +"\n"+ "amount: " + amount +"\n"+ "note: " + note+"\n");
 	}
 	
 	public void getUserInput(Scanner input) {
-		System.out.print("Note : ");
+		System.out.print("Note :  ");
 		String note = input.next();
 		this.setNote(note);
 		

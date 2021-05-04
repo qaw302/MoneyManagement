@@ -1,7 +1,10 @@
  import java.util.ArrayList;
 import java.util.Scanner;
 
+import money.ExpensesMoney;
+import money.IncomeMoney;
 import money.Money;
+import money.MoneyKind;
 
 public class MoneyManager {
 		ArrayList<Money> moneys = new ArrayList<Money>();
@@ -14,17 +17,19 @@ public class MoneyManager {
 			int kind = 0;
 			Money money;
 			while (kind != 1 && kind !=2 ) {
-				System.out.print("1. for Income");
-				System.out.print("2. for Expenses");
-				System.out.print("Select one num: ");
+				System.out.println("1. for Income");
+				System.out.println("2. for Expenses");
+				System.out.println("Select one num: ");
 				kind = input.nextInt();
 				if(kind == 1) {
-					money = new Money();
+					money = new IncomeMoney(MoneyKind.Income);
+					money.getUserInput(input);
 					moneys.add(money);
 					break;
 				}
 				else if(kind == 2) {
-					money = new Money();
+					money = new ExpensesMoney(MoneyKind.Expenses	);
+					money.getUserInput(input);
 					moneys.add(money);
 					break;
 				}

@@ -2,12 +2,12 @@ package money;
 
 import java.util.Scanner;
 
-public class IncomeMoney extends Money {
+public class ExpensesMoney extends Money {
 	
-	public IncomeMoney(MoneyKind kind) {
+	public ExpensesMoney(MoneyKind kind) {
 		super(kind);
 	}
-	
+
 	public void getUserInput(Scanner input) {
 		System.out.print("Note : ");
 		String note = input.next();
@@ -35,5 +35,4 @@ public class IncomeMoney extends Money {
 		}
 		System.out.println("\n"+ "kind: " + mkind + "\n"+ "date: " + "\n"+ date +"\n"+ "amount: " + amount +"\n"+ "note: " + note+"\n");
 	}
-
 }
