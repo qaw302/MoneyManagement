@@ -44,7 +44,7 @@ public class MoneyManager {
 			String dnote = input.next();
 			int index = -1;
 			for(int i=0; i<moneys.size(); i++) {
-				if (moneys.get(i).getNote() == dnote) {
+				if (moneys.get(i).getNote().equals(dnote)) {
 					index = i;
 					break;
 				}
@@ -52,7 +52,7 @@ public class MoneyManager {
 			
 			if(index >=0) {
 				moneys.remove(index);
-				System.out.println("the money "+ dnote + "is deleted");
+				System.out.println("the money "+ dnote + " is deleted");
 			}
 			else {
 				System.out.println("The note has not been registered.");

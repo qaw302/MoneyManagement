@@ -34,9 +34,6 @@ public class Money {
 		this.note = note;
 	}
 	
-	public int getAll() {
-		return all;
-	}
 	public MoneyKind getKind() {
 		return kind;
 	}
@@ -60,6 +57,11 @@ public class Money {
 	public void setAmount(int amount) {
 		this.amount = amount;
 	}
+	
+	/*
+	 * public int getAmount() { return all; }
+	 */
+	
 
 	public String getNote() {
 		return note;
@@ -79,7 +81,7 @@ public class Money {
 			mkind = "Expenses";
 			break;
 		}
-		System.out.println("\n"+ "kind" + mkind +"date: " + "\n"+ date +"\n"+ "amount: " + amount +"\n"+ "note: " + note+"\n");
+		System.out.println("\n"+ "kind" + mkind +"date: " + date +"\n"+ "amount: " + amount +"\n"+ "note: " + note+"\n");
 	}
 	
 	public void getUserInput(Scanner input) {
