@@ -9,30 +9,13 @@ public class ExpensesMoney extends Money {
 	}
 
 	public void getUserInput(Scanner input) {
-		System.out.print("Note : ");
-		String note = input.next();
-		this.setNote(note);
-		
-		System.out.print("Date : ");
-		String date = input.next();
-		this.setDate(date);
-		
-		System.out.print("Amount : ");
-		int amount = input.nextInt();
-		this.setAmount(amount);
-		
+		setMoneyNote(input);
+		setMoneyDate(input);
+		setMoneyAmount(input);
 	}
 	
 	public void printInfo() {
-		String mkind = "none";
-		switch(this.kind) {
-		case Income:
-			mkind = "Income";
-			break;
-		case Expenses:
-			mkind = "Expenses";
-			break;
-		}
+		String mkind = getKindString();
 		System.out.println("\n"+ "kind: " + mkind + "\n"+ "date: " + "\n"+ date +"\n"+ "amount: " + amount +"\n"+ "note: " + note+"\n");
 	}
 }

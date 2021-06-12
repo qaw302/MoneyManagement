@@ -1,8 +1,9 @@
 package money;
 
 import java.util.Scanner;
+import exception.DateFormatException;
 
-public class Money {
+public abstract class  Money implements MoneyInput {
 	protected MoneyKind kind = MoneyKind.Expenses;
 	protected String date;
 	protected int amount;
@@ -46,7 +47,10 @@ public class Money {
 		return date;
 	}
 
-	public void setDate(String date) {
+	public void setDate(String date) throws DateFormatException {
+		if (!date.contains("/") || !date.equals("")) {
+			throw new DateFormatException();
+		}
 		this.date = date;
 	}
 
@@ -71,7 +75,34 @@ public class Money {
 		this.note = note;
 	}	
 
-	public void printInfo() {
+	public abstract void printInfo();
+	
+	public void setMoneyNote(Scanner input) {
+		System.out.println("Note: ");
+		String note = input.next();
+		this.setNote(note);
+	}
+	
+	public void setMoneyDate(Scanner input) {
+		String date ="";
+		while (!date.contains("/")) {
+			System.out.print("Date:");
+			date = input.next();
+			try {
+				this.setDate(date);
+			} catch (DateFormatException e) {
+				System.out.println("Incorrect Date Format. put the date that contains /");
+			}
+		}
+	}
+	
+	public void setMoneyAmount(Scanner input) {
+		System.out.println("Amount: ");
+		int amount = input.nextInt();
+		this.setAmount(amount);
+	}
+	
+	public String getKindString() {
 		String mkind = "none";
 		switch(this.kind) {
 		case Income:
@@ -80,21 +111,10 @@ public class Money {
 		case Expenses:
 			mkind = "Expenses";
 			break;
+		default:
 		}
-		System.out.println("\n"+ "kind" + mkind +"date: " + date +"\n"+ "amount: " + amount +"\n"+ "note: " + note+"\n");
+		return mkind;
 	}
+
 	
-	public void getUserInput(Scanner input) {
-		System.out.print("Note :  ");
-		String note = input.next();
-		this.setNote(note);
-		
-		System.out.print("Date : ");
-		String date = input.next();
-		this.setDate(date);
-		
-		System.out.print("Amount : ");
-		int amount = input.nextInt();
-		this.setAmount(amount);
-	}
 }
