@@ -54,7 +54,7 @@ public abstract class  Money implements MoneyInput, Serializable {
 	}
 
 	public void setDate(String date) throws DateFormatException {
-		if (!date.contains(".") || !date.equals("")) {
+		if (!date.contains(" ") || !date.equals("")) {
 			throw new DateFormatException();
 		}
 		this.date = date;
@@ -91,7 +91,7 @@ public abstract class  Money implements MoneyInput, Serializable {
 	
 	public void setMoneyDate(Scanner input) {
 		String date ="";
-		while (!date.contains(".")) {
+		while (!date.contains(" ")) {
 			System.out.print("Date:");
 			date = input.next();
 			try {

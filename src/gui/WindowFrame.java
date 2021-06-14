@@ -7,6 +7,7 @@ import manager.MoneyManager;
 
 public class WindowFrame extends JFrame {
 	MoneyManager moneyManager;
+	
 	MenuSelection menuselection;
 	MoneyAdder moneyadder;
 	MoneyViewer moneyviewer;
@@ -19,7 +20,7 @@ public class WindowFrame extends JFrame {
 		
 		this.moneyManager = moneyManager;
 		menuselection = new MenuSelection(this);
-		moneyadder = new MoneyAdder(this);
+		moneyadder = new MoneyAdder(this, this.moneyManager);
 		moneyviewer = new MoneyViewer(this, this.moneyManager);
 		
 		this.add(menuselection);

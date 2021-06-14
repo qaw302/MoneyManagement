@@ -1,5 +1,9 @@
 package manager;
- import java.io.Serializable;
+ import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -17,9 +21,19 @@ public class MoneyManager implements Serializable {
 	private static final long serialVersionUID = -7165340575263730371L;
 	
 		ArrayList<MoneyInput> moneys = new ArrayList<MoneyInput>();
-		transient Scanner input;
+		transient Scanner input = new Scanner(System.in);
 		MoneyManager(Scanner input) {
 			this.input = input;
+		}
+		
+		public void addMoney(String note, String date, int Amount) {
+			MoneyInput moneyInput = new IncomeMoney(MoneyKind.Income);
+			moneyInput.getUserInput(input);
+			moneys.add(moneyInput);
+		}
+		
+		public void addMoney(MoneyInput moneyInput) {
+			moneys.add(moneyInput);
 		}
 		
 		public void addMoney() {
@@ -136,5 +150,7 @@ public class MoneyManager implements Serializable {
 			System.out.println(" 4. Exit");
 			System.out.println("Select one number between 1-4: ");
 		}
+		
+
 
 }

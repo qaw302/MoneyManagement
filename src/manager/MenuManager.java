@@ -77,7 +77,6 @@ public class MenuManager {
 	public static MoneyManager getObject(String filename) {
 		MoneyManager moneyManager = null;
 		
-		
 		try {
 			FileInputStream file = new FileInputStream(filename);
 			ObjectInputStream in = new ObjectInputStream(file);
