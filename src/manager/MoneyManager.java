@@ -1,4 +1,6 @@
- import java.util.ArrayList;
+package manager;
+ import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -8,9 +10,14 @@ import money.Money;
 import money.MoneyInput;
 import money.MoneyKind;
 
-public class MoneyManager {
+public class MoneyManager implements Serializable {
+ 		/**
+	 *
+	 */
+	private static final long serialVersionUID = -7165340575263730371L;
+	
 		ArrayList<MoneyInput> moneys = new ArrayList<MoneyInput>();
-		Scanner input;
+		transient Scanner input;
 		MoneyManager(Scanner input) {
 			this.input = input;
 		}
@@ -112,6 +119,14 @@ public class MoneyManager {
 				moneys.get(i).printInfo();
 			}
 		}	
+		
+		public int size() {
+			return moneys.size();
+		}
+		
+		public MoneyInput get(int index) {
+			return (Money) moneys.get(index);
+		}
 		
 		public void showEditMenu() {
 			System.out.println("** Money Info Edit Menu **");

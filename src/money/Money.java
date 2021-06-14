@@ -1,9 +1,15 @@
 package money;
 
+import java.io.Serializable;
 import java.util.Scanner;
 import exception.DateFormatException;
 
-public abstract class  Money implements MoneyInput {
+public abstract class  Money implements MoneyInput, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3928031007542589278L;
+	
 	protected MoneyKind kind = MoneyKind.Expenses;
 	protected String date;
 	protected int amount;
@@ -48,7 +54,7 @@ public abstract class  Money implements MoneyInput {
 	}
 
 	public void setDate(String date) throws DateFormatException {
-		if (!date.contains("/") || !date.equals("")) {
+		if (!date.contains(".") || !date.equals("")) {
 			throw new DateFormatException();
 		}
 		this.date = date;
@@ -85,13 +91,13 @@ public abstract class  Money implements MoneyInput {
 	
 	public void setMoneyDate(Scanner input) {
 		String date ="";
-		while (!date.contains("/")) {
+		while (!date.contains(".")) {
 			System.out.print("Date:");
 			date = input.next();
 			try {
 				this.setDate(date);
 			} catch (DateFormatException e) {
-				System.out.println("Incorrect Date Format. put the date that contains /");
+				System.out.println("Incorrect Date Format. put the date that contains .");
 			}
 		}
 	}

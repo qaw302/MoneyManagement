@@ -10,7 +10,11 @@ public interface MoneyInput {
 	
 	public void setNote(String note);
 	
+	public String getDate();
+	
 	public void setDate(String date) throws DateFormatException;
+	
+	public int getAmount();
 	
 	public void setAmount(int amount);
 	
